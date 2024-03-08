@@ -1,10 +1,8 @@
 ﻿namespace algorithms.console.Search.Binary
 {
-    public class BinarySearchImplementation : BaseSearchImplementation, IAlgorithmImplementation
+    public class BinarySearchImplementation(int[] items, int item) : AlgorithmImplementationBase(items, item)
     {
-        public BinarySearchImplementation(int[] items, int item) : base(items, item) { }
-
-        public int Execute()
+        public override int Execute()
         {
             var l = 0;
             var r = Items.Length - 1;

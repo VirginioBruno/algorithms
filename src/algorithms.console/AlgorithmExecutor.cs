@@ -4,7 +4,7 @@ namespace algorithms.console
 {
     public static class AlgorithmExecutor
     {
-        public static void Execute(IAlgorithmImplementation algorithm) 
+        public static int Execute(IAlgorithmImplementation algorithm) 
         {
             var stopWatch = new Stopwatch();
             stopWatch.Start();
@@ -13,7 +13,9 @@ namespace algorithms.console
 
             stopWatch.Stop();
 
-            Console.WriteLine($"{(result >= 0 ? $"Element found at {result}" : "Element not found")}. Elapsed: {stopWatch.Elapsed}");
+            Console.WriteLine($"Elapsed time: {stopWatch.Elapsed}");
+
+            return result;
         }
     }
 }

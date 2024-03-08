@@ -1,19 +1,18 @@
-﻿using Bogus;
-
-namespace algorithms.console.Search.Linear
+﻿namespace algorithms.console.Search.Linear
 {
     public static class LinearSearch
     {
         public static void Do() 
         {
-            var random = new Random();
-            var items = Enumerable.Range(0, 1000000).Select(_ => random.Next(0, 1000)).ToArray();
+            var items = Helper.GenerateIntArray(1, 1000, 1000);
             var item = 10;
-
-            Console.WriteLine($"Executing {nameof(LinearSearch)} - Finding element {item} in collection with {items.Length} elements");
+        
+            Console.WriteLine($"Executing {nameof(LinearSearch)} - Finding element {item} in collection with {items.Length} elements - Exists? {items.Any(x => x == item)}");
             var linearSearch = new LinearSearchImplementation(items, item);
 
-            AlgorithmExecutor.Execute(linearSearch);
+            var index = AlgorithmExecutor.Execute(linearSearch);
+
+            Console.WriteLine($"Executed {nameof(LinearSearch)} - Element {item} found at index {index}");
         }
     }
 }

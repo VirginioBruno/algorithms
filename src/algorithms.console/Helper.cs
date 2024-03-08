@@ -4,42 +4,14 @@
     {
         public static int[] GenerateIntArray(int min = 1, int max = 1000, int size = 100) 
         {
-            var result = new int[size];
             var random = new Random();
-            var i = 0;
-
-            while (result[i] == 0 && i < size)
-            {
-                var number = random.Next(min, max);
-                if (result.Any(x => x == number))
-                    continue;
-
-                result[i] = number;
-
-                i++;
-            }
-
-            return result;
+            return Enumerable.Range(1, size).Select(_ => random.Next(min, max)).ToArray();
         }
 
         public static int[] GenerateOrderedIntArray(int min = 1, int max = 1000, int size = 100)
         {
-            var result = new int[size];
-            var random = new Random();
-            var i = 0;
-
-            while (i <= size - 1 && result[i] == 0)
-            {
-                var number = random.Next(min, max);
-                if (result.Any(x => x == number))
-                    continue;
-
-                result[i] = number;
-
-                i++;
-            }
-
-            return result.OrderBy(x => x).ToArray();
+            var result = GenerateIntArray(min, max, size);
+            return [.. result.OrderBy(x => x)];
         }
     }
 }
