@@ -13,5 +13,15 @@
             var result = GenerateIntArray(min, max, size);
             return [.. result.OrderBy(x => x)];
         }
+
+        public static string ShowElements(int[] array) 
+        {
+            var stringArray = "";
+
+            for(int i = 0; i < array.Length; i++) 
+                stringArray += array[i] + (array.Length - 1 == i ? "" : ", ");
+
+            return stringArray;
+        }
     }
 }
