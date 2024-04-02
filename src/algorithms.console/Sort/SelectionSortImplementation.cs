@@ -14,7 +14,7 @@ public class SelectionSortImplementation(int[] items) : AlgorithmImplementationB
                     minimumValueIndex = j;
             }
 
-            if (minimumValueIndex != i)
+            if (minimumValueIndex != i) 
                 (Items[minimumValueIndex], Items[i]) = (Items[i], Items[minimumValueIndex]);
         }
 
